@@ -11,14 +11,14 @@ This repository acts as a multi-language sandbox. I actively practice and implem
 * **Data & Databases:** SQL, Relational Database Design
 * **Version Control:** Git & GitHub Architecture
 
-## 📁 Repository Structure
+## Repository Structure
 To keep my learning journey clean and scalable, the projects are organized as follows:
 * `challenges/` — Solutions to algorithmic problems and logic training.
 * `mini-projects/` — Small functional applications and technical prototypes.
 * `scripts/` — Automation tools and quick code experiments.
 * `notes/` — Structural summaries and key takeaways from my tech studies.
 
-## 📈 Goals & Focus Areas
+##  Goals & Focus Areas
 - [ ] Master advanced data structures and algorithm analysis.
 - [ ] Build scalable and efficient logic modules.
 - [ ] Maintain a clean, professional, and well-documented commit history.
