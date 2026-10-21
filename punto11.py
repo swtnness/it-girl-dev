@@ -1,24 +1,25 @@
-#Elabore un programa en Python que lea tres (3) números y los imprima en forma ascendente
+import customtkinter as ctk
 
-num1 = float(input("Ingrese el primer número: \n"))
-num2 = float(input("Ingrese el segundo número: \n"))
-num3 = float(input("Ingrese el tercer número: \n"))
+def validar_contrasena():
+    try:
+        contrasena = entry1.get()
+        if len(contrasena) < 8:
+            lblRes.configure(text="Contraseña muy corta", text_color="red")
+        else:
+            lblRes.configure(text="Contraseña valida", text_color="pink")
+    except ValueError:
+        lblRes.configure(text="Ingrese datos validos", text_color="red")
 
-if num1 <= num2 and num1 <= num3:
-    if num2 <= num3:
-        menor, medio, mayor = num1, num2, num3
-    else:
-        menor, medio, mayor = num1, num3, num2
-elif num2 <= num1 and num2 <= num3:
-    if num1 <= num3:
-        menor, medio, mayor = num2, num1, num3
-    else:
-        menor, medio, mayor = num2, num3, num1
-else:
-    if num1 <= num2:
-        menor, medio, mayor = num3, num1, num2
-    else:
-        menor, medio, mayor = num3, num2, num1
+app = ctk.CTk()
+app.geometry("300x200")
+app.title("Validar contraseña")
 
-print("Los números en orden ascendente son:")
-print(f"{menor} - {medio} - {mayor}")
+entry1 = ctk.CTkEntry(app, placeholder_text="Ingrese contraseña")
+entry1.pack(pady=10)
+
+ctk.CTkButton(app, text="Validar", command=validar_contrasena).pack(pady=10)
+
+lblRes = ctk.CTkLabel(app, text="Espera...")
+lblRes.pack(pady=10)
+
+app.mainloop()

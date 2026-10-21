@@ -1,15 +1,30 @@
-#En un almacén se descuenta el 20% del precio al cliente solo si el valor a pagar supera $200.000.
-#Debe mostrar lo que debe pagar el cliente, además del valor del descuento y el valor inicial.
+import customtkinter as ctk
 
-precio_1 = float(input("Ingrese el precio del producto: \n"))
-if precio_1 > 200000:
-    descuento = precio_1 * 0.20
-else:
-    descuento = 0
-    
-total_compra = precio_1 - descuento
+def convertir_moneda():
+    try:
+        dinero = float(entry1.get())
+        tasa = 0.85
 
-print(f"Valor inicial {precio_1}")
-print(f"Valor inicial: {precio_1}")
-print(f"Valor del descuento: {descuento}")
-print(f"Total a pagar: {total_compra}")
+        if dinero < 0:
+            lblRes.configure(text="No se permiten negativos", text_color="red")
+        else:
+            resultado = dinero * tasa
+            lblRes.configure(text=f"Resultado: {resultado:.2f} EUR", text_color="pink")
+
+    except ValueError:
+        lblRes.configure(text="Ingrese un monto valido", text_color="red")
+
+
+app = ctk.CTk()
+app.geometry("300x200")
+app.title("Conversor de moneda")
+
+entry1 = ctk.CTkEntry(app, placeholder_text="Ingrese dinero en USD")
+entry1.pack(pady=10)
+
+ctk.CTkButton(app, text="Convertir", command=convertir_moneda).pack(pady=10)
+
+lblRes = ctk.CTkLabel(app, text="Espera...")
+lblRes.pack(pady=10)
+
+app.mainloop()
